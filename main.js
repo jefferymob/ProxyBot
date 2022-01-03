@@ -24,13 +24,13 @@ client.once('ready', () => {
 client.on('messageCreate', message  => {
 	if(!message.content.startsWith(prefix) || message.author.bot) return;
 
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = message.content.slice(prefix.length).trim().split(/ (.*)/);
 	const command = args.shift().toLocaleLowerCase()
 
 	if (command === 'ping'){
 		client.commands.get('ping').execute(message, args)
-	} else if (command === 'command'){
-		client.commands.get('command').execute(message, args, Discord)
+	} else if (command === 'gen AK it 2000'){
+		client.commands.get('gen AK it 2000').execute(message, args, Discord)
 
 	}
 })
